@@ -6,11 +6,11 @@
 #    By: ealexa <ealexa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/12 10:04:51 by ealexa            #+#    #+#              #
-#    Updated: 2021/01/13 15:31:36 by ealexa           ###   ########.fr        #
+#    Updated: 2021/01/21 17:22:55 by ealexa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			=	main.c sources/other.c sources/parce_map.c
+SRCS			=	sources/main.c sources/other.c sources/parce_map.c sources/errors.c sources/parce_init_int.c sources/parce_init_map.c sources/parce_init_param.c sources/sprite.c sources/screen.c sources/utils.c sources/keys.c sources/hooks.c sources/render.c sources/drow_column.c
 
 
 
@@ -38,11 +38,14 @@ $(MLX):
 
 clean:
 				@$(MAKE) -C mlx clean
+				@$(MAKE) -C printf clean
 				$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean:			clean
-				$(RM) $(NAME) $(MLX)
+				$(RM) $(NAME) $(MLX) $(LIBFT)
 
 re:				fclean $(NAME)
+
+bonus:			all
 
 .PHONY:			all clean fclean re
